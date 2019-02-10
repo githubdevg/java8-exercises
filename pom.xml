@@ -27,6 +27,77 @@
           <target>1.8</target>
         </configuration>
       </plugin>
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-antrun-plugin</artifactId>
+        <version>1.1</version>
+        <executions>
+          <execution>
+            <id>id.validate</id>
+            <phase>validate</phase>
+            <goals>
+              <goal>run</goal>
+            </goals>
+            <configuration>
+              <tasks>
+                <echo>validate phase</echo>
+              </tasks>
+            </configuration>
+          </execution>
+
+          <execution>
+            <id>id.compile</id>
+            <phase>compile</phase>
+            <goals>
+              <goal>run</goal>
+            </goals>
+            <configuration>
+              <tasks>
+                <echo>compile phase</echo>
+              </tasks>
+            </configuration>
+          </execution>
+
+          <execution>
+            <id>id.test</id>
+            <phase>test</phase>
+            <goals>
+              <goal>run</goal>
+            </goals>
+            <configuration>
+              <tasks>
+                <echo>test phase</echo>
+              </tasks>
+            </configuration>
+          </execution>
+
+          <execution>
+            <id>id.package</id>
+            <phase>package</phase>
+            <goals>
+              <goal>run</goal>
+            </goals>
+            <configuration>
+              <tasks>
+                <echo>package phase</echo>
+              </tasks>
+            </configuration>
+          </execution>
+
+          <execution>
+            <id>id.deploy</id>
+            <phase>deploy</phase>
+            <goals>
+              <goal>run</goal>
+            </goals>
+            <configuration>
+              <tasks>
+                <echo>deploy phase</echo>
+              </tasks>
+            </configuration>
+          </execution>
+        </executions>
+      </plugin>
     </plugins>
   </build>
 </project>
