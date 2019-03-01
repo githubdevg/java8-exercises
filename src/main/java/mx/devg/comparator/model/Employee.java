@@ -1,6 +1,6 @@
 package mx.devg.comparator.model;
 
-public class Employee {
+public class Employee implements Comparable<Employee>{
 
     private String name;
     private int age;
@@ -8,10 +8,7 @@ public class Employee {
     private long mobile;
 
     public Employee() {
-        this.name = name;
-        this.age = age;
-        this.salary = salary;
-        this.mobile = mobile;
+
     }
 
     public Employee(String name, int age, double salary, long mobile) {
@@ -52,4 +49,9 @@ public class Employee {
         this.mobile = mobile;
     }
 
+
+    @Override
+    public int compareTo(Employee e) {
+        return name.compareTo(e.getName());
+    }
 }
