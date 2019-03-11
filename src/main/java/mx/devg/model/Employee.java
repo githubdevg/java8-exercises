@@ -1,4 +1,4 @@
-package mx.devg.comparator.model;
+package mx.devg.model;
 
 public class Employee implements Comparable<Employee>{
 

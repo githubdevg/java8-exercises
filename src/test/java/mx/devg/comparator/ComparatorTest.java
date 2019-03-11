@@ -1,6 +1,6 @@
 package mx.devg.comparator;
 
-import mx.devg.comparator.model.Employee;
+import mx.devg.model.Employee;
 import org.junit.Before;
 import org.junit.Test;
 
