@@ -12,7 +12,6 @@ import java.util.stream.Collector;
 
 public class ImmutableSetCollector<T> implements Collector<T, ImmutableSet.Builder<T>, ImmutableSet<T>> {
 
-
     @Override
     public Supplier<ImmutableSet.Builder<T>> supplier() {
         // return ImmutableSet::builder;
@@ -22,7 +21,7 @@ public class ImmutableSetCollector<T> implements Collector<T, ImmutableSet.Build
     @Override
     public BiConsumer<ImmutableSet.Builder<T>, T> accumulator() {
         //  return ImmutableSet.Builder::add;
-        return (builder, T) -> builder.add();
+        return (builder, T) -> builder.add(T);
     }
 
     @Override
@@ -44,7 +43,6 @@ public class ImmutableSetCollector<T> implements Collector<T, ImmutableSet.Build
     }
 
     public static <T> ImmutableSetCollector<T> toImmutableSet() {
-
         return new ImmutableSetCollector<>();
     }
 

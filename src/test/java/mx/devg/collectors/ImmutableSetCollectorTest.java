@@ -12,13 +12,10 @@ public class ImmutableSetCollectorTest {
     @Test
     public void testImmutableSetCollector() {
         List<String> list = Arrays.asList("a", "bb", "ccc", "dddd");
-
         ImmutableSet<String> immutableSet = list.stream().collect(ImmutableSetCollector.toImmutableSet());
-
-        System.out.println(immutableSet.iterator().hasNext());
-
-        Assert.assertTrue(immutableSet.isEmpty());
-
+        Assert.assertTrue(!immutableSet.isEmpty());
+        immutableSet.forEach(System.out::println);
+        Assert.assertTrue(immutableSet.containsAll(list));
     }
 
 }
