@@ -7,7 +7,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.function.Function;
 
-public class LinkedHashMapCollectorTest {
+public class CustomMapCollectorTest {
 
 
     @Test
@@ -18,7 +18,7 @@ public class LinkedHashMapCollectorTest {
         Function<String, String> valueMapperFunction = Function.identity();
 
 
-        Map<Integer, String> linkedHashMap = stringsList.stream()
+ 
 
 
     }
