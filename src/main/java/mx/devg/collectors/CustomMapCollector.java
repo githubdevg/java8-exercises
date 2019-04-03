@@ -11,12 +11,20 @@ import java.util.function.Supplier;
 import java.util.stream.Collector;
 
 public class CustomMapCollector<T, K, V, M extends Map<K, V>> implements Collector<T, M, M> {
-	
+
 	private Function<? super T, ? extends K> keyMapper;
-	
+
 	private Function<? super T, ? extends V>valueMapper;
-	
+
 	private Supplier<M> mapSuppiler;
+
+    public CustomMapCollector(Function<? super T, ? extends K> keyMapper,
+                              Function<? super T, ? extends V> valueMapper,
+                              Supplier<M> mapSuppiler) {
+        this.keyMapper = keyMapper;
+        this.valueMapper = valueMapper;
+        this.mapSuppiler = mapSuppiler;
+    }
 
     @Override
     public Supplier<M> supplier() {
@@ -46,5 +54,11 @@ public class CustomMapCollector<T, K, V, M extends Map<K, V>> implements Collect
     @Override
     public Set<Collector.Characteristics> characteristics() {
         return Collections.singleton(Characteristics.IDENTITY_FINISH);
+    }
+
+    public static <T, K, V, M extends Map<K,V>> CustomMapCollector<T, K, V, M> toMap(Function<? super T, ? extends K> keyMapper,
+                                                                                     Function<? super T, ? extends V> valueMapper,
+                                                                                     Supplier<M> mapSuppiler) {
+        return  new CustomMapCollector<>(keyMapper, valueMapper, mapSuppiler);
     }
 }
